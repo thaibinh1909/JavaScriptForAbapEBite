@@ -1,0 +1,9 @@
+[
+    {
+        "make": "Toy",
+        "model": "Raizer",
+        "color": "Gold",
+        "picture": "http://placehold.it/32x32",
+        "topSpeed": 200
+    }
+]

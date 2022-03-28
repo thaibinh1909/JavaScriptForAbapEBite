@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+
+<!-- <body onload="onPageLoad()"> -->
+
+<body>
+    <div id="text-div">
+        <!-- <h1>a normal everyday webpage</h1> -->
+        <!-- <h1 id="header-text" onmouseover="onHoverH1()" onmouseout="onMouseOffH1()">a not very everyday webpage</h1> -->
+        <h1 id="header-text">a not very everyday webpage</h1>
+        <p id="test">some old text.</p>
+    </div>
+    <div id="button-div">
+        <button type="button" onclick="changeSomeText()">try it</button>
+        <button type="button" onclick="addSomeText()">try this one too</button>
+        <button type="button" onclick="removeSomeText()">dangerous button</button>
+    </div>
+    <br>
+    <div>
+        <button id="ajaxjQuery-button">jQuery AJAX</button>
+    </div>
+    <script>
+        function changeSomeText() {
+            document.getElementById("test").innerHTML = "some new text appeared";
+            document.getElementById("test").style.cssText = "font-weight: bold; background-color: Chartreuse";
+        }
+        function addSomeText() {
+            const div = document.getElementById("text-div");
+            const newText = document.createElement("p");
+            newText.textContent = "brand new text";
+            div.appendChild(newText);
+        }
+        function removeSomeText() {
+            const text = document.querySelector("#test");
+            text.remove();
+        }
+        // function onHoverH1() {
+        //     // let headerText = document.querySelector("#header-text");
+        //     let headerText = document.getElementById("header-text");
+        //     headerText.style.color = "orange";
+        //     headerText.innerHTML = "you hovered it";
+        // }
+        // function onMouseOffH1() {
+        //     let headerText = document.getElementById("header-text");
+        //     headerText.style.color = "";
+        //     headerText.innerHTML = "back to normal baby";
+        // }
+        // window.onload = (event) => {
+        //     document.getElementById("btn1").addEventListener("click",changeSomeText);
+        // }    
+        $("#header-text").on({
+            mouseenter: function () {
+                $(this).text("hey! you hovered me!");
+                $(this).append(" this text changed!"); // place text at the end
+            },
+            mouseleave: function () {
+                $(this).text("jQuery awesome!");
+                $(this).prepend("this text changed too! "); // place text at the beginning
+            }
+        })
+        $("#ajaxjQuery-button").click(() => {
+            $.get("ajaxData.json", (data, status) => {
+                alert(`congratulations! you got a ${data[0]["make"]}!`);
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[
+    {
+        "make": "Nissan",
+        "model": "GTR",
+        "color": "white",
+        "picture": "http://placehold.it/32x32",
+        "topSpeed": 300
+    }
+]
